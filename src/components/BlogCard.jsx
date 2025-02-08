@@ -24,16 +24,18 @@ const BlogCard = ({ blog, theme }) => {
       <div className="blog-card-body">
         <h3 className="blog-title text-xl font-bold mb-2">{title}</h3>
         <div className={`blog-content-preview text-sm ${isDark ? "text-white" : "text-gray-600"}`}>
+        <div className={`blog-content-preview text-sm ${isDark ? "text-white" : "text-gray-600"}`}>
   <ReactMarkdown
     components={{
-      p: ({ children }) => <p className="text-white">{children}</p>,
-      span: ({ children }) => <span className="text-white">{children}</span>,
-      strong: ({ children }) => <strong className="text-white">{children}</strong>
+      p: ({ children }) => <p className={isDark ? "text-white" : "text-gray-800"}>{children}</p>,
+      span: ({ children }) => <span className={isDark ? "text-white" : "text-gray-800"}>{children}</span>,
+      strong: ({ children }) => <strong className={isDark ? "text-white" : "text-gray-900"}>{children}</strong>
     }}
   >
     {content.substring(0, 200) + "..."}
   </ReactMarkdown>
 </div>
+        </div>
 
 
         <Link to={`/blog/${id}`} className={`read-more-btn inline-flex items-center gap-2 mt-2 ${isDark ? "text-blue-400" : "text-blue-600"}`}>
