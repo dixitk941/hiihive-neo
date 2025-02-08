@@ -11,6 +11,7 @@ import BottomBar from '../components/BottomBar';
 import loaderGif from '../assets/normload.gif';
 import FusionPost from '../components/FusionPost';
 import PollPost from '../components/UploadPoll';
+import BlogUpload from '../components/UploadBlog';
 
 const UploadPage = () => {
   const [currentUser, setCurrentUser] = useState(null);
@@ -85,56 +86,71 @@ const UploadPage = () => {
 
         {/* Main Content */}
         {!selectedChat && (
-          <main className="flex-1 p-6 overflow-y-auto">
-          <div className="flex space-x-4 mb-4">
-  <button
-    className={`flex-1 py-2 rounded-lg font-semibold transition-all ${
-      uploadType === 'Post'
-        ? 'bg-blue-600 text-white shadow-md'
-        : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-    }`}
-    onClick={() => setUploadType('Post')}
-  >
-    Post
-  </button>
-
-  <button
-    className={`flex-1 py-2 rounded-lg font-semibold transition-all ${
-      uploadType === 'Hivee'
-        ? 'bg-blue-600 text-white shadow-md'
-        : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-    }`}
-    onClick={() => setUploadType('Hivee')}
-  >
-    Hivee
-  </button>
-
-  <button
-    className={`flex-1 py-2 rounded-lg font-semibold transition-all ${
-      uploadType === 'Poll'
-        ? 'bg-blue-600 text-white shadow-md'
-        : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-    }`}
-    onClick={() => setUploadType('Poll')}
-  >
-    Poll
-  </button>
-</div>
-
-            {uploadType === 'Post' ? (
-              <FusionPost currentUser={currentUser} />
-            ) : uploadType === 'Hivee' ? (
-              <UploadHivee currentUser={currentUser} />
-            ) : (
-              <PollPost
-                question={pollData.question}
-                options={pollData.options}
-                setPollData={setPollData}
-                handleSubmit={handlePollSubmit}
-              />
-            )}
-          </main>
-        )}
+        <main className="flex-1 p-6 overflow-y-auto">
+        <div className="flex space-x-4 mb-4">
+          <button
+            className={`flex-1 py-2 rounded-lg font-semibold transition-all ${
+              uploadType === 'Post'
+                ? 'bg-blue-600 text-white shadow-md'
+                : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+            }`}
+            onClick={() => setUploadType('Post')}
+          >
+            Post
+          </button>
+      
+          <button
+            className={`flex-1 py-2 rounded-lg font-semibold transition-all ${
+              uploadType === 'Hivee'
+                ? 'bg-blue-600 text-white shadow-md'
+                : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+            }`}
+            onClick={() => setUploadType('Hivee')}
+          >
+            Hivee
+          </button>
+      
+          <button
+            className={`flex-1 py-2 rounded-lg font-semibold transition-all ${
+              uploadType === 'Poll'
+                ? 'bg-blue-600 text-white shadow-md'
+                : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+            }`}
+            onClick={() => setUploadType('Poll')}
+          >
+            Poll
+          </button>
+      
+          {/* ✅ Added Blog Button */}
+          <button
+            className={`flex-1 py-2 rounded-lg font-semibold transition-all ${
+              uploadType === 'Blog'
+                ? 'bg-blue-600 text-white shadow-md'
+                : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+            }`}
+            onClick={() => setUploadType('Blog')}
+          >
+            Blog
+          </button>
+        </div>
+      
+        {/* ✅ Fixed Conditional Rendering for BlogUpload */}
+        {uploadType === 'Post' ? (
+          <FusionPost currentUser={currentUser} />
+        ) : uploadType === 'Hivee' ? (
+          <UploadHivee currentUser={currentUser} />
+        ) : uploadType === 'Poll' ? (
+          <PollPost
+            question={pollData.question}
+            options={pollData.options}
+            setPollData={setPollData}
+            handleSubmit={handlePollSubmit}
+          />
+        ) : uploadType === 'Blog' ? (
+          <BlogUpload currentUser={currentUser} />
+        ) : null}
+      </main>
+      )}
 
         {/* SidebarRight or ChatInterface */}
         {isSidebarRightVisible && (

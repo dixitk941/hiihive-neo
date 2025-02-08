@@ -11,7 +11,8 @@ import { AnimatePresence, motion } from "framer-motion";
 import Loading from "./components/Loading";
 import KnowledgeHub from "./components/KnowledgeHub/KnowledgeHub";
 import PopUp from "./components/PopUp"; // Import your PopUp component
-
+import BlogPage from "./Pages/BlogPage";
+import BlogFeedPage from "./Pages/BlogFeedPage";
 const HomePage = React.lazy(() => import("./Pages/HomePage"));
 const HiveePage = React.lazy(() => import("./components/Hivee"));
 const LoginPage = React.lazy(() => import("./Pages/Login"));
@@ -74,12 +75,20 @@ function AppContent({ user, showPopUp, setShowPopUp }) {
               element={user ? <Navigate to="/" /> : <AnimatedPage><LoginPage /></AnimatedPage>}
             />
             <Route
+              path="/feed"
+              element={user ? <AnimatedPage><BlogFeedPage /></AnimatedPage> : <Navigate to="/login" />}
+            />
+            <Route
               path="/"
               element={user ? <AnimatedPage><HomePage /></AnimatedPage> : <Navigate to="/login" />}
             />
             <Route
               path="/hivee"
               element={user ? <AnimatedPage><HiveePage /></AnimatedPage> : <Navigate to="/login" />}
+            />
+            <Route
+              path="/blogs"
+              element={user ? <AnimatedPage><BlogPage /></AnimatedPage> : <Navigate to="/login" />}
             />
             <Route
               path="/chat/:chatRoomId"
