@@ -130,7 +130,7 @@ const UploadPage = () => {
             }`}
             onClick={() => setUploadType('Blog')}
           >
-            Blog
+            Blog & News
           </button>
         </div>
       

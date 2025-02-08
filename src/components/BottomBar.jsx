@@ -1,6 +1,8 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { HomeIcon, ChatBubbleLeftIcon, ArrowUpTrayIcon, MagnifyingGlassIcon, PlayIcon } from '@heroicons/react/24/outline'; // PlayIcon for Hivees
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBlog } from "@fortawesome/free-solid-svg-icons";
 
 const BottomBar = ({ toggleSidebarRight, isStoryActive }) => {
   const navigate = useNavigate();
@@ -12,23 +14,24 @@ const BottomBar = ({ toggleSidebarRight, isStoryActive }) => {
       }`}
     >
       <button
-        onClick={() => navigate('/')}
+        onClick={() => navigate('/feed')}
         className="flex flex-col items-center p-2 rounded-lg hover:bg-gray-700 hover:text-blue-600 transition-all duration-150" // Dark mode hover effects
       >
         <HomeIcon className="h-5 w-5" /> {/* Smaller Home Icon */}
       </button>
-      <button
-        onClick={() => navigate('/chatlist')}
-        // onClick={toggleSidebarRight}
-        className="flex flex-col items-center p-2 rounded-lg hover:bg-gray-700 hover:text-blue-600 transition-all duration-150" // Dark mode hover effects
-      >
-        <ChatBubbleLeftIcon className="h-5 w-5" /> {/* Smaller Message Icon */}
-      </button>
+
       <button
         onClick={() => navigate('/upload')}
         className="flex flex-col items-center p-2 rounded-lg hover:bg-gray-700 hover:text-blue-600 transition-all duration-150" // Dark mode hover effects
       >
         <ArrowUpTrayIcon className="h-5 w-5" /> {/* Smaller Upload Icon */}
+      </button>
+      <button
+        onClick={() => navigate('/')}
+        // onClick={toggleSidebarRight}
+        className="flex flex-col items-center p-2 rounded-lg hover:bg-gray-700 hover:text-blue-600 transition-all duration-150" // Dark mode hover effects
+      >
+    <FontAwesomeIcon className="h-5 w-5" icon={faBlog} size="lg"  />
       </button>
       <button
         onClick={() => navigate('/hivee')}
