@@ -23,11 +23,12 @@ const BlogCard = ({ blog, theme }) => {
       {/* Middle Section: Title and Content Preview */}
       <div className="blog-card-body">
         <h3 className="blog-title text-xl font-bold mb-2">{title}</h3>
-        <div className={`blog-content-preview text-sm ${isDark ? "text-gray-300" : "text-gray-600"}`}>
-          <ReactMarkdown>
-            {content.substring(0, 100) + "..."}
-          </ReactMarkdown>
-        </div>
+<div className={`blog-content-preview text-sm prose ${isDark ? "prose-invert text-white" : "text-gray-600"}`}>
+  <ReactMarkdown>
+    {content.substring(0, 200) + "..."}
+  </ReactMarkdown>
+</div>
+
         <Link to={`/blog/${id}`} className={`read-more-btn inline-flex items-center gap-2 mt-2 ${isDark ? "text-blue-400" : "text-blue-600"}`}>
           <FontAwesomeIcon icon={faBookOpen} /> Read More
         </Link>
