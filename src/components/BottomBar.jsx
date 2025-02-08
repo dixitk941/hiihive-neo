@@ -33,12 +33,7 @@ const BottomBar = ({ toggleSidebarRight, isStoryActive }) => {
       >
     <FontAwesomeIcon className="h-5 w-5" icon={faBlog} size="lg"  />
       </button>
-      <button
-        onClick={() => navigate('/hivee')}
-        className="flex flex-col items-center p-2 rounded-lg hover:bg-gray-700 hover:text-blue-600 transition-all duration-150" // Dark mode hover effects
-      >
-        <PlayIcon className="h-5 w-5" /> {/* Smaller Hivees Icon */}
-      </button>
+     
       <button
         onClick={() => navigate('/explore')}
         className="flex flex-col items-center p-2 rounded-lg hover:bg-gray-700 hover:text-blue-600 transition-all duration-150" // Dark mode hover effects
