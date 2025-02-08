@@ -71,7 +71,7 @@ const SidebarLeft = () => {
 
         {/* Navigation for larger screens */}
         <nav className="space-y-3">
-          <Link to="/">
+          <Link to="/feed">
             <button className={`flex items-center p-3 rounded-lg hover:bg-blue-50 hover:text-blue-600 transition duration-300 ${isCollapsed ? 'justify-center' : ''}`}>
               <FiHome size={20} />
               <span className={`${isCollapsed ? 'hidden' : 'ml-2 font-semibold'}`}>Home</span>
@@ -83,13 +83,13 @@ const SidebarLeft = () => {
               <span className={`${isCollapsed ? 'hidden' : 'ml-2 font-semibold'}`}>Explore</span>
             </button>
           </Link>
-          <Link to="/chatlist">
+          {/* <Link to="/chatlist">
             <button className={`flex items-center p-3 rounded-lg hover:bg-blue-50 hover:text-blue-600 transition duration-300 ${isCollapsed ? 'justify-center' : ''}`}>
               <FiMessageSquare size={20} />
               <span className={`${isCollapsed ? 'hidden' : 'ml-2 font-semibold'}`}>Chat List</span>
             </button>
-          </Link>
-          <Link to="/feed">
+          </Link> */}
+          <Link to="/">
   <button className={`flex items-center p-3 rounded-lg hover:bg-blue-50 hover:text-blue-600 transition duration-300 ${isCollapsed ? 'justify-center' : ''}`}>
     <FontAwesomeIcon icon={faBlog} size="lg" />
     <span className={`${isCollapsed ? 'hidden' : 'ml-2 font-semibold'}`}>Blog</span>

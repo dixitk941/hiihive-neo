@@ -140,7 +140,7 @@ const BlogFeedPage = () => {
         {!selectedChat && (
           <main className="flex-1 p-4 overflow-auto">
 <h1 className="page-title text-4xl font-bold" style={{ fontFamily: "'Lobster', cursive" }}>
-    Blogs
+    Blogs & News
 </h1>
       <div className="blog-feed">
         {blogs.map((blog) => (

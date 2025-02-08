@@ -75,11 +75,11 @@ function AppContent({ user, showPopUp, setShowPopUp }) {
               element={user ? <Navigate to="/" /> : <AnimatedPage><LoginPage /></AnimatedPage>}
             />
             <Route
-              path="/feed"
+              path="/"
               element={user ? <AnimatedPage><BlogFeedPage /></AnimatedPage> : <Navigate to="/login" />}
             />
             <Route
-              path="/"
+              path="/feed"
               element={user ? <AnimatedPage><HomePage /></AnimatedPage> : <Navigate to="/login" />}
             />
             <Route
