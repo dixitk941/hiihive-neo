@@ -17,7 +17,7 @@ const BlogUpload = () => {
   const [category, setCategory] = useState("Developer");
   const [userData, setUserData] = useState({ userId: "", username: "", avatarUrl: "" });
 
-  const categories = ["Developer", "Movies", "Food", "Reader", "Wildlife", "Design", "Data Science"];
+  const categories = ["IT", "Movies", "Food", "Music", "Wildlife", "Design", "Data Science"];
 
   // Fetch current user details from Firestore
   useEffect(() => {

@@ -87,7 +87,7 @@ function AppContent({ user, showPopUp, setShowPopUp }) {
               element={user ? <AnimatedPage><HiveePage /></AnimatedPage> : <Navigate to="/login" />}
             />
             <Route
-              path="/blogs"
+              path="/blog/:id"
               element={user ? <AnimatedPage><BlogPage /></AnimatedPage> : <Navigate to="/login" />}
             />
             <Route

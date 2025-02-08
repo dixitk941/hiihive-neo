@@ -1,8 +1,8 @@
-// components/BlogCard.jsx
 import React from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faBookOpen } from "@fortawesome/free-solid-svg-icons";
+import ReactMarkdown from "react-markdown";
 
 const BlogCard = ({ blog }) => {
   const { id, title, content, username, avatarUrl, imageUrl } = blog;
@@ -18,9 +18,11 @@ const BlogCard = ({ blog }) => {
       {/* Middle Section: Title and Content Preview */}
       <div className="blog-card-body">
         <h3 className="blog-title">{title}</h3>
-        <p className="blog-content-preview">
-          {content.substring(0, 100)}...
-        </p>
+        <div className="blog-content-preview">
+          <ReactMarkdown>
+            {content.substring(0, 100) + "..."}
+          </ReactMarkdown>
+        </div>
         <Link to={`/blog/${id}`} className="read-more-btn">
           <FontAwesomeIcon icon={faBookOpen} /> Read More
         </Link>

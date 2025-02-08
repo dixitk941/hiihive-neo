@@ -1,20 +1,43 @@
+import React from "react";
+import ReactMarkdown from "react-markdown";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeading, faTag, faClock } from "@fortawesome/free-solid-svg-icons";
+import { faUser, faCalendar, faTags } from "@fortawesome/free-solid-svg-icons";
 
 const BlogView = ({ blog }) => {
+  const { title, category, content, username, avatarUrl, imageUrl, createdAt } = blog;
+
   return (
-    <div className="p-6 rounded-lg shadow-md bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white mb-4">
-      <h2 className="text-xl font-bold mb-2">
-        <FontAwesomeIcon icon={faHeading} className="mr-2" /> {blog.title}
-      </h2>
-      <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
-        <FontAwesomeIcon icon={faTag} className="mr-2" /> {blog.category}
-      </p>
-      <p className="mb-4">{blog.content}</p>
-      {blog.imageUrl && <img src={blog.imageUrl} alt="Blog" className="w-full rounded-md" />}
-      <p className="text-xs text-gray-500 mt-2">
-        <FontAwesomeIcon icon={faClock} className="mr-2" /> {new Date(blog.timestamp?.seconds * 1000).toLocaleString()}
-      </p>
+    <div className="blog-view">
+      {/* Blog Header: Title and Category */}
+      <div className="blog-header">
+        <h1 className="blog-title">{title}</h1>
+        <p className="blog-category">
+          <FontAwesomeIcon icon={faTags} /> {category}
+        </p>
+      </div>
+
+      {/* Author Info: Avatar, Username, and Date */}
+      <div className="author-info">
+        <img src={avatarUrl} alt={username} className="author-avatar" />
+        <div className="author-details">
+          <p className="author-name">{username}</p>
+          <p className="blog-date">
+            <FontAwesomeIcon icon={faCalendar} /> {new Date(createdAt).toLocaleDateString()}
+          </p>
+        </div>
+      </div>
+
+      {/* Blog Image */}
+      {imageUrl && (
+        <div className="blog-image-container">
+          <img src={imageUrl} alt={title} className="blog-image" />
+        </div>
+      )}
+
+      {/* Blog Content with Markdown Support */}
+      <div className="blog-content markdown-body">
+        <ReactMarkdown>{content}</ReactMarkdown>
+      </div>
     </div>
   );
 };
