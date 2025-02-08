@@ -1,0 +1,216 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.group:hover .controls {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.progress-bar {
+  position: relative;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+}
+
+.progress-bar .progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: linear-gradient(90deg, #00f, #0ff);
+  transition: width 0.2s ease;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes flash {
+  0%, 50%, 100% {
+    opacity: 1;
+  }
+  25%, 75% {
+    opacity: 0.5;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.welcome-message {
+  animation: fadeIn 1s ease-out forwards;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #fff;
+  background: linear-gradient(90deg, #ff8a00, #e52e71);
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  margin: 2rem auto;
+  width: fit-content;
+}
+
+.knowledge-hub-enter {
+  animation: slideIn 1s ease-out forwards;
+}
+/* src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.header {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-bar {
+  width: 0;
+  transition: width 0.5s ease-in-out;
+}
+
+.search-bar:focus {
+  width: 100%;
+}button {
+  min-width: 40px;
+  min-height: 40px;
+}
+
+button:hover {
+  scale: 1.1; /* Slightly enlarge on hover for better interaction */
+}
+
+.absolute {
+  pointer-events: auto; /* Ensure buttons respond to clicks */
+}
+
+
+
+/* CSS */
+.w-full {
+  width: 100%;
+}
+
+.h-screen {
+  height: 100vh;
+}
+
+.object-cover {
+  object-fit: cover;
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.bg-black {
+  background-color: black;
+}
+/* CSS for smooth scrolling */
+.h-full {
+  scroll-behavior: smooth; /* Add smooth scrolling */
+}
+/* In your global styles (e.g., styles.css or inside Tailwind config) */
+.scroll-container {
+  scroll-snap-type: y mandatory;
+}
+
+.scroll-item {
+  scroll-snap-align: start;
+}
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+body.dark {
+  background-color: black;
+  color: white;
+}
+
+.dark .bg-white {
+  background-color: black !important;
+}
+
+.dark .text-gray-900 {
+  color: white !important;
+}
+
+.dark .shadow-lg {
+  box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1) !important;
+}
+
+.dark .hover\:shadow-2xl:hover {
+  box-shadow: 0 10px 15px rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Additional dark theme styles */
+.dark .bg-gray-200 {
+  background-color: #333 !important;
+}
+
+.dark .bg-gray-800 {
+  background-color: #111 !important;
+}
+
+.dark .text-gray-800 {
+  color: #ccc !important;
+}
+
+.dark .text-gray-300 {
+  color: #bbb !important;
+}
+
+.dark .text-blue-400 {
+  color: #4f83cc !important;
+}
+
+.dark .bg-blue-500 {
+  background-color: #1e3a8a !important;
+}
+
+.dark .bg-blue-600 {
+  background-color: #1e40af !important;
+}
