@@ -139,7 +139,9 @@ const BlogFeedPage = () => {
         {/* Main content section with Feeds */}
         {!selectedChat && (
           <main className="flex-1 p-4 overflow-auto">
-<h1 className="page-title">Blogs</h1>
+<h1 className="page-title text-4xl font-bold" style={{ fontFamily: "'Lobster', cursive" }}>
+    Blogs
+</h1>
       <div className="blog-feed">
         {blogs.map((blog) => (
           <BlogCard key={blog.id} blog={blog} />
@@ -148,22 +150,6 @@ const BlogFeedPage = () => {
           </main>
         )}
 
-        {/* Conditionally render SidebarRight or ChatInterface */}
-        <div className="hidden lg:flex flex-col w-96">
-          {/* If no chat is selected, show SidebarRight
-          {!selectedChat ? (
-            <SidebarRight currentUser={currentUser} setSelectedChat={setSelectedChat} /> 
-          ) : (
-            <ChatInterface currentUser={currentUser} chatRoomId={selectedChat} onBack={handleBackToSidebar} /> 
-          )} */}
-        </div>
-
-        {/* Show SidebarRight on mobile if isSidebarRightVisible is true */}
-        {/* {isSidebarRightVisible && (
-          <div ref={sidebarRightRef} className="lg:hidden fixed bottom-0 left-0 right-0 bg-white shadow-lg z-50 p-4">
-            <SidebarRight currentUser={currentUser} setSelectedChat={setSelectedChat} />
-          </div>
-        )} */}
       </div>
 
       {/* Floating menu for additional options */}
