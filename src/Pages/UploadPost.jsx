@@ -88,6 +88,16 @@ const UploadPage = () => {
         {!selectedChat && (
         <main className="flex-1 p-6 overflow-y-auto">
         <div className="flex space-x-4 mb-4">
+        <button
+            className={`flex-1 py-2 rounded-lg font-semibold transition-all ${
+              uploadType === 'Blog'
+                ? 'bg-blue-600 text-white shadow-md'
+                : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+            }`}
+            onClick={() => setUploadType('Blog')}
+          >
+            Blog & News
+          </button>
           <button
             className={`flex-1 py-2 rounded-lg font-semibold transition-all ${
               uploadType === 'Post'
@@ -99,7 +109,7 @@ const UploadPage = () => {
             Post
           </button>
       
-          <button
+          {/* <button
             className={`flex-1 py-2 rounded-lg font-semibold transition-all ${
               uploadType === 'Hivee'
                 ? 'bg-blue-600 text-white shadow-md'
@@ -108,7 +118,7 @@ const UploadPage = () => {
             onClick={() => setUploadType('Hivee')}
           >
             Hivee
-          </button>
+          </button> */}
       
           <button
             className={`flex-1 py-2 rounded-lg font-semibold transition-all ${
@@ -121,17 +131,6 @@ const UploadPage = () => {
             Poll
           </button>
       
-          {/* ✅ Added Blog Button */}
-          <button
-            className={`flex-1 py-2 rounded-lg font-semibold transition-all ${
-              uploadType === 'Blog'
-                ? 'bg-blue-600 text-white shadow-md'
-                : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-            }`}
-            onClick={() => setUploadType('Blog')}
-          >
-            Blog & News
-          </button>
         </div>
       
         {/* ✅ Fixed Conditional Rendering for BlogUpload */}
