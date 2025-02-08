@@ -2,6 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { FiSettings, FiLogOut, FiChevronLeft, FiChevronRight, FiHome, FiMessageSquare, FiUpload, FiUsers, FiCompass, FiBell } from 'react-icons/fi';
 import { Link, useNavigate } from 'react-router-dom';
 import { signOut } from 'firebase/auth';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import { faBlog } from "@fortawesome/free-solid-svg-icons";
+
 import { auth } from './firebaseConfig';  // Your firebase config file to access auth
 
 const SidebarLeft = () => {
@@ -85,6 +89,13 @@ const SidebarLeft = () => {
               <span className={`${isCollapsed ? 'hidden' : 'ml-2 font-semibold'}`}>Chat List</span>
             </button>
           </Link>
+          <Link to="/feed">
+  <button className={`flex items-center p-3 rounded-lg hover:bg-blue-50 hover:text-blue-600 transition duration-300 ${isCollapsed ? 'justify-center' : ''}`}>
+    <FontAwesomeIcon icon={faBlog} size="lg" />
+    <span className={`${isCollapsed ? 'hidden' : 'ml-2 font-semibold'}`}>Blog</span>
+  </button>
+</Link>
+
           <Link to="/upload">
             <button className={`flex items-center p-3 rounded-lg hover:bg-blue-50 hover:text-blue-600 transition duration-300 ${isCollapsed ? 'justify-center' : ''}`}>
               <FiUpload size={20} />
