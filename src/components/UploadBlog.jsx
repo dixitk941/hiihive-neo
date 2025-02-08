@@ -4,12 +4,14 @@ import { collection, doc, setDoc, serverTimestamp, getDoc } from "firebase/fires
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { useTheme } from "next-themes";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUpload, faFileImage, faHeading, faFileAlt } from "@fortawesome/free-solid-svg-icons";
+import { faUpload, faFileImage, faHeading, faFileAlt, faEye } from "@fortawesome/free-solid-svg-icons";
+import ReactMarkdown from "react-markdown";
 
 const BlogUpload = () => {
   const { theme } = useTheme();
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
+  const [markdownPreview, setMarkdownPreview] = useState(false);
   const [image, setImage] = useState(null);
   const [loading, setLoading] = useState(false);
   const [category, setCategory] = useState("Developer");
@@ -64,7 +66,8 @@ const BlogUpload = () => {
       await setDoc(blogRef, {
         id: blogId, // Store the blog ID explicitly
         title,
-        content,
+        content, // Store Markdown content
+        textContent: content.replace(/[#_*`]/g, ""), // Convert Markdown to plain text and store it
         imageUrl,
         category,
         userId: userData.userId,
@@ -117,7 +120,7 @@ const BlogUpload = () => {
         <div className="flex items-center gap-2">
           <FontAwesomeIcon icon={faFileAlt} />
           <textarea
-            placeholder="Blog Content"
+            placeholder="Write in Markdown or plain text..."
             value={content}
             onChange={(e) => setContent(e.target.value)}
             rows={6}
@@ -125,6 +128,21 @@ const BlogUpload = () => {
             className="w-full p-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600"
           />
         </div>
+        <div className="flex items-center justify-between">
+          <button
+            type="button"
+            onClick={() => setMarkdownPreview(!markdownPreview)}
+            className="bg-gray-500 text-white px-3 py-1 rounded-lg hover:bg-gray-600"
+          >
+            <FontAwesomeIcon icon={faEye} className="mr-2" />
+            {markdownPreview ? "Hide Preview" : "Show Preview"}
+          </button>
+        </div>
+        {markdownPreview && (
+          <div className="border p-4 rounded-lg bg-gray-100 dark:bg-gray-700">
+            <ReactMarkdown>{content}</ReactMarkdown>
+          </div>
+        )}
         <div className="flex items-center gap-2">
           <FontAwesomeIcon icon={faFileImage} />
           <input 
