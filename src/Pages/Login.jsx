@@ -140,7 +140,7 @@ const LoginPage = () => {
       return;
     }
 
-    if (!formData.email || !formData.password || !formData.username || !formData.fullName || !formData.age || !formData.college) {
+    if (!formData.email || !formData.password || !formData.username || !formData.fullName || !formData.age) {
       setError("All fields are required.");
       setLoading(false);
       return;
